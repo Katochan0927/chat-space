@@ -5,8 +5,8 @@
     .main__header
       %h2.main__header__group-name group-name
       %li.main__header__group-members Members:
-      %a
-        .main__header__group-edit-btn Edit
+      =link_to "#", class: "main__header__group-edit-btn" do
+        Edit
     .main__body
       .main__body__message
         .main__body__message-user-name user-name
