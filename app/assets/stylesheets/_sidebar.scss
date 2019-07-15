@@ -1,0 +1,35 @@
+.sidebar {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  &__header {
+    height: 100px;
+    width: 100%;
+    background-color: #253141;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding: auto 0;
+    &__box {
+      justify-content: space-between;
+      display: flex;
+      &-user-name {
+        margin: 38px 50px 38px 20px;
+      }
+      &__btn-edit{
+        margin: 38px 10px 38px 10px;
+      }
+      &__btn-cog{
+        margin: 38px 10px 38px 10px;
+      }
+    }
+  }
+  &__groups {
+    background-color: #2f3e51;
+    height: 100%;
+    width: auto;
+    padding: 20px 20px 0;
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,21 @@
+.wrapper
+  = render partial: 'messages/sidebar'
+
+  .main
+    .main__header
+      %h2.main__header__group-name group-name
+      %li.main__header__group-members Members:
+      %a
+        .main__header__group-edit-btn Edit
+    .main__body
+      .main__body__message
+        .main__body__message-user-name user-name
+        .main__body__message-date 2019/07/13 12:00
+        .main__body__message-text text
+    .main__footer
+      %form.main__footer__form
+        .main__footer__form-box
+          %input.main__footer__form-box__text{placeholder: "type a message", type: "text"}
+          %label.main__footer__form-box__image{type: "image"}
+            %i.fa.fa-image
+        %input.main__footer__form-btn{value: "Send",type: "submit"}
