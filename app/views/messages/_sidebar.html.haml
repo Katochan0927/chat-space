@@ -4,11 +4,16 @@
       %h3.sidebar__header__box-user-name
         = current_user.name
       .sidebar__header__box__btn-edit
-        %i.fa.fa-edit
+        = link_to new_group_path do
+          = fa_icon 'pencil-square-o'
       .sidebar__header__box__btn-cog
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog'
   .sidebar__groups
-    .sidebar__groups__group
-      group-name
-
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
