@@ -7,15 +7,13 @@
       %li.main__header__group-members Members:
       =link_to "#", class: "main__header__group-edit-btn" do
         Edit
-    .main__body
-      .main__body__message
-        .main__body__message-user-name user-name
-        .main__body__message-date 2019/07/13 12:00
-        .main__body__message-text text
-    .main__footer
-      %form.main__footer__form
-        .main__footer__form-box
-          %input.main__footer__form-box__text{placeholder: "type a message", type: "text"}
-          %label.main__footer__form-box__image{type: "image"}
-            %i.fa.fa-image
-        %input.main__footer__form-btn{value: "Send",type: "submit"}
+    .messages
+      = render @messages
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
