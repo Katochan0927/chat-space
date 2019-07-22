@@ -44,8 +44,7 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       scroll();
-      $('#message_content').reset();
-      $('#message_image').reset();
+      $('#new_message')[0].reset();
       $('.form__submit').prop('disabled', false);
     })
     .fail(function(){
