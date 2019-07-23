@@ -10,7 +10,7 @@ $(function() {
   }
   //「追加」ボタンでHTML作成
   function appendNewUser(id, name){
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
                 <input name='group[user_ids][]' type='hidden' value='${id}'>
                 <p class='chat-group-user__name'>${name}</p>
                 <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
@@ -42,8 +42,8 @@ $("#user-search-field").on("keyup", function() {
 
   //メンバー追加
   $("#user-search-result").on("click",".chat-group-user__btn--add", function() {
-    var id = $(this).attr("data-user-id");
-    var name = $(this).attr("data-user-name");
+    var id = $(this).data("user-id");
+    var name = $(this).data("user-name");
     var addNewUser = appendNewUser(id, name);
     $('.chat-group-users').append(addNewUser);
     $(this).parent('.chat-group-user').remove();
