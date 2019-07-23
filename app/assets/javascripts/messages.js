@@ -4,7 +4,7 @@ $(function(){
 
     image = (message.image_url) ? `<img class="lower-message__image" src="${ message.image_url }">`: "";
 
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.user_name}
@@ -24,7 +24,6 @@ $(function(){
   }
 
   function scroll() {
-
     window.scroll(0,$(document).height());
   }
 
@@ -52,4 +51,29 @@ $(function(){
       $('.form__submit').prop('disabled', false);
     })
   });
+
+  // 自動更新 
+  var reloadMessages = function () {
+    if (location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message').filter(":last").data("message-id"); 
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function (messages) {
+        var insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
+          $('.messages').append(insertHTML);
+        })
+        scroll();
+      })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    };
+  };
+  setInterval(reloadMessages, 5000);
 });
