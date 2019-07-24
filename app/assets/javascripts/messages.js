@@ -57,7 +57,7 @@ $(function(){
     if (location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.message').filter(":last").data("message-id"); 
       $.ajax({
-        url: location.href,
+        url: 'api/messages',
         type: 'GET',
         dataType: 'json',
         data: {id: last_message_id}
