@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    # binding.pry
-    # @mumbers = 
     @users = User.where('name LIKE(?) && id != (?)', "%#{params[:keyword]}%", current_user.id)
     respond_to do |format|
       format.html
@@ -22,10 +20,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  # def member_params
-  #   params.
-  # end
 
   def user_params
     params.require(:user).permit(:name, :email)
