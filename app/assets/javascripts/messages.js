@@ -1,5 +1,5 @@
-$(function(){
-
+$(document).on('turbolinks:load', function(){
+  $(function(){
   function buildHTML(message){
 
     image = (message.image_url) ? `<img class="lower-message__image" src="${ message.image_url }">`: "";
@@ -76,4 +76,5 @@ $(function(){
     };
   };
   setInterval(reloadMessages, 5000);
+  });
 });

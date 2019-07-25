@@ -1,4 +1,5 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
+  $(function() {
   var search_list = $("#user-search-result");
   //検索結果自動表示
   function appendUser(user){
@@ -51,5 +52,6 @@ $("#user-search-field").on("keyup", function() {
   //メンバー削除
   $(".chat-group-users").on("click",".user-search-remove", function() {
   $(this).parent().remove();
+  });
   });
 });

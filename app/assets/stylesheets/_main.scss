@@ -4,8 +4,11 @@
   margin-left: 300px;
   &__header{
     height: 100px;
-    margin: 0 40px;
     border-block-end: #eeeeee;
+    position: fixed;
+    background-color: white;
+    width: calc(100vw - 300px);
+    padding: 0 40px;
     &__group-name{
       display: block;
       position: relative;
@@ -100,4 +103,13 @@
       padding: 0 30px;
     }
   }
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a.edit-btn {
+  color: #38aef0;
 }

@@ -4,9 +4,12 @@
   .main
     .main__header
       %h2.main__header__group-name #{@group.name}
-      %li.main__header__group-members Members: 
-      =link_to "edit", class: "main__header__group-edit-btn" do
-        Edit
+      %ul.main__header__group-members 
+        Members:
+        - @group.users.each do |user|
+          = user.name
+      .main__header__group-edit-btn
+        =link_to "edit", edit_group_path(@group), class: "edit-btn"
     .messages
       = render @messages
     .form
