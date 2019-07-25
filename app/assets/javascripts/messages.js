@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
   }
 
   function scroll() {
-    window.scroll(0,$(document).height());
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
   }
 
   $('#new_message').on('submit', function(e){
