@@ -4,8 +4,8 @@
   .main
     .main__header
       %h2.main__header__group-name #{@group.name}
-      %li.main__header__group-members Members:
-      =link_to "#", class: "main__header__group-edit-btn" do
+      %li.main__header__group-members Members: 
+      =link_to "edit", class: "main__header__group-edit-btn" do
         Edit
     .messages
       = render @messages
